@@ -4,42 +4,42 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo_slug| "https://github.com/#{repo_slug}" }
 
-gem 'rails', '>= 5.0.0.rc2', '< 5.1'
-gem 'puma', '~> 3.11.4'
-gem 'mysql2', '~> 0.4.10'
+gem 'rails', '~> 5.0.7'
+gem 'puma', '~> 3.12.0'
+gem 'mysql2', '~> 0.5.2'
 gem 'redis-rails', '~> 5.0.2'
-gem 'jbuilder', '~> 2.7.0'
+gem 'jbuilder', '~> 2.8.0'
 gem 'figaro', '~> 1.1.1'
-gem 'hashie', '~> 3.5.7'
-gem 'aasm', '~> 5.0.0'
-gem 'bunny', '~> 2.11.0'
-gem 'cancancan', '~> 2.2.0'
+gem 'hashie', '~> 3.6.0'
+gem 'aasm', '~> 5.0.1'
+gem 'bunny', '~> 2.13.0'
+gem 'cancancan', '~> 2.3.0'
 gem 'enumerize', '~> 2.2.2'
 gem 'kaminari', '~> 1.1.1'
 gem 'api-pagination', '~> 4.8.2'
-gem 'sassc-rails', '~> 1.3.0'
+gem 'sassc-rails', '~> 2.1.0'
 gem 'coffee-rails', '~> 4.2.2'
 gem 'uglifier', '~> 4.1.17'
 gem 'jquery-rails', '~> 4.3.3'
-gem 'bootstrap', '~> 4.1.3'
-gem 'font-awesome-sass', '~> 5.2.0'
+gem 'bootstrap', '~> 4.2.1'
+gem 'font-awesome-sass', '~> 5.6.1'
 gem 'rbtree', '~> 0.4.2'
-gem 'grape', '~> 1.1.0'
+gem 'grape', '~> 1.2.2'
 gem 'grape-entity', '~> 0.7.1'
-gem 'grape-swagger', '~> 0.30.1'
+gem 'grape-swagger', '~> 0.32.1'
 gem 'grape-swagger-ui', '~> 2.2.8'
-gem 'grape-swagger-entity', '~> 0.2.5'
-gem 'grape_strip', '~> 1.0.0'
+gem 'grape-swagger-entity', '~> 0.3.1'
+gem 'grape_strip', '~> 1.0.1'
 gem 'grape_logging', '~> 1.8.0'
-gem 'rack-attack', '~> 5.4.1'
-gem 'easy_table', '~> 0.0.9'
-gem 'faraday', '~> 0.14.0'
+gem 'rack-attack', '~> 5.4.2'
+gem 'easy_table', '~> 0.0.10'
+gem 'faraday', '~> 0.15.4'
 gem 'jwt', '~> 2.1.0'
 gem 'email_validator', '~> 1.6.0'
 gem 'validate_url', '~> 1.0.2'
 gem 'clipboard-rails', '~> 1.7.1'
 gem 'god', '~> 0.13.7', require: false
-gem 'mini_racer', '~> 0.2.0', require: false
+gem 'mini_racer', '~> 0.2.4', require: false
 gem 'arel-is-blank', '~> 1.0.0'
 gem 'sentry-raven', '~> 2.7.3', require: false
 gem 'memoist', '~> 0.16.0'
@@ -57,28 +57,31 @@ gem 'vault', '~> 0.12', require: false
 
 group :development, :test do
   gem 'bump',         '~> 0.7'
-  gem 'faker',        '~> 1.8'
+  gem 'faker',        '~> 1.9.1'
   gem 'pry-byebug',   '~> 3.6'
-  gem 'quiet_assets', '~> 1.1'
-  gem 'bullet',       '~> 5.7'
+  gem 'bullet',       '~> 5.9.0'
   gem 'grape_on_rails_routes', '~> 0.3.2'
 end
 
 group :development do
-  gem 'annotate',   '~> 2.7'
-  gem 'ruby-prof',  '~> 0.17.0', require: false
+  gem 'annotate',  '~> 2.7.4'
+  gem 'ruby-prof', '~> 0.17.0', require: false
+  gem 'spring',    '~> 2.0.2'
+  gem 'spring-watcher-listen', '~> 2.0.1'
 end
 
 group :test do
-  gem 'rspec-rails',         '~> 3.7'
-  gem 'rspec-retry',         '~> 0.5'
-  gem 'webmock',             '~> 3.3'
-  gem 'database_cleaner',    '~> 1.6'
-  gem 'mocha',               '~> 1.4', require: false
-  gem 'factory_bot_rails',   '~> 4.8'
-  gem 'timecop',             '~> 0.9'
-  gem 'rubocop-rspec',       '~> 1.30', require: false
+  gem 'rspec-rails',       '~> 3.8.1'
+  gem 'rspec-retry',       '~> 0.6.1'
+  gem 'webmock',           '~> 3.5.1'
+  gem 'database_cleaner',  '~> 1.7.0'
+  gem 'mocha',             '~> 1.7.0', require: false
+  gem 'factory_bot_rails', '~> 4.11.1'
+  gem 'timecop',           '~> 0.9.1'
+  gem 'rubocop-rspec',     '~> 1.31.0', require: false
+  gem 'rails-controller-testing', '~> 1.0.4'
 end
+
 
 # Load gems from Gemfile.plugin.
 Dir.glob File.expand_path('../Gemfile.plugin', __FILE__) do |file|
