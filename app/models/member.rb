@@ -153,12 +153,12 @@ private
 end
 
 # == Schema Information
-# Schema version: 20181027192001
+# Schema version: 20190309203630
 #
 # Table name: members
 #
 #  id         :integer          not null, primary key
-#  uid        :string(12)       not null
+#  uid        :string(36)       not null
 #  email      :string(255)      not null
 #  level      :integer          not null
 #  role       :string(16)       not null
