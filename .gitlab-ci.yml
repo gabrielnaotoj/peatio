@@ -1,0 +1,36 @@
+image: docker:stable
+
+stages:
+  - build
+  - publish
+
+variables:
+  PROJECT: peatio
+  BRANCH: $CI_COMMIT_REF_SLUG
+  CONTAINER_CURRENT_IMAGE: registry.gitlab.com/jungsoft/peatio/branch:$CI_COMMIT_REF_SLUG
+  CONTAINER_RELEASE_IMAGE: registry.gitlab.com/jungsoft/peatio
+
+build:
+  stage: build
+  services:
+    - docker:dind
+  before_script:
+    - apk add git
+    - git rev-parse HEAD > REVISION
+  script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+    - docker build -t $CONTAINER_CURRENT_IMAGE .
+    - docker push $CONTAINER_CURRENT_IMAGE
+
+publish:
+  stage: publish
+  services:
+    - docker:dind
+  before_script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+  script:
+    - docker pull $CONTAINER_CURRENT_IMAGE
+    - docker tag $CONTAINER_CURRENT_IMAGE $CONTAINER_RELEASE_IMAGE
+    - docker push $CONTAINER_RELEASE_IMAGE
+  only:
+    - master
