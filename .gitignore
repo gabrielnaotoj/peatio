@@ -27,6 +27,7 @@ tmp
 /config/deposit_channels.old.yml
 /config/withdraw_channels.old.yml
 /config/management_api_v1.yml
+/config/management_api_v1.template.yml
 /config/secrets
 /config/seed
 
